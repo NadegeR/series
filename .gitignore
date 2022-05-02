@@ -1,3 +1,4 @@
+###> ignorer les regalges de l'ide ###
 /.idea/
 ###> symfony/framework-bundle ###
 /.env.local
