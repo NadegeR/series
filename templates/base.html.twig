@@ -5,11 +5,21 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>{% block title %}Series ! {% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('css/normalize.css')}}">
+
+    <link rel="icon" href="{{asset('img/icon.png')}}">
+
 </head>
 <body>
+    <div class="container">
     <header>
-        <h1>Series !</h1>
+        <h1><a href="{{path('main-home')}}"><img src="{{asset('img/logo.svg')}}" alt="Series !"></a></h1>
         {% include ('inc/nav.html.twig')%}
     </header>
 
@@ -17,10 +27,10 @@
         {% block body %} {% endblock%}
     </main>
     <footer>
-
-        <div>{% include ('inc/nav.html.twig')%} / &copy; {{"now"|date("Y")}} Series !</div>
+        {% include ('inc/nav.html.twig')%}
+        <div>&copy; {{"now"|date("Y")}} Series !</div>
     </footer>
-
+    </div>
 
 </body>
 </html>

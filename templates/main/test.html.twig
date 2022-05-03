@@ -1,37 +1,39 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-<h1>Test</h1>
-<div>
-    <div>{{ "now"|date('Y')}}</div>
+    <h1>Test</h1>
+    <div>{{ mySerie.title|raw }} - {{ mySerie.year }}</div>
 
-    {# creer 1 variable #}
-    {% set name = "Nadege" %}
-    <h2>{{ name|upper }}</h2>
-
-    {# creer 1 tableau #}
-    {% set colors = ["Orange", "Brown", "Red", "Blue"] %}
-
-    <div>nombre de couleurs : {{colors|length}}</div>
-    <div>{{colors|join(' / ')}}</div>
-
-    {% for color in colors %}
-        <div>index du tableu colors : {{loop.index}}</div>
-        <div>indique dernier passge dans la boucle : {{loop.last}}</div>
-
-        <div style="background-color: {{ color }}">{{ color }}</div>
-    {% endfor %}
-
-    {# creer 1 objet #}
-    {% set book = {title:'Poufpouf',
-        year: 2000,
-        author: "John Doe"} %}
-    <h3>{{ book.author }}</h3>
     <div>
-        {% for key, val in book %}
-            <div>{{ key }} : {{ val }}</div>
+        <div>{{ "now"|date('Y') }}</div>
+
+        {# creer 1 variable #}
+        {% set name = "Nadege" %}
+        <h2>{{ name|upper }}</h2>
+
+        {# creer 1 tableau #}
+        {% set colors = ["Orange", "Brown", "Red", "Blue"] %}
+
+        <div>nombre de couleurs : {{ colors|length }}</div>
+        <div>{{ colors|join(' / ') }}</div>
+
+        {% for color in colors %}
+            <div>index du tableu colors : {{ loop.index }}</div>
+            <div>indique dernier passge dans la boucle : {{ loop.last }}</div>
+
+            <div style="background-color: {{ color }}">{{ color }}</div>
         {% endfor %}
+
+        {# creer 1 objet #}
+        {% set book = {title:'Poufpouf',
+            year: 2000,
+            author: "John Doe"} %}
+        <h3>{{ book.author }}</h3>
+        <div>
+            {% for key, val in book %}
+                <div>{{ key }} : {{ val }}</div>
+            {% endfor %}
+        </div>
     </div>
-</div>
 {% endblock %}
 
 {% block title %}{{ parent() }} | Test {% endblock %}
