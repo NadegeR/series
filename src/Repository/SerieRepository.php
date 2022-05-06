@@ -6,6 +6,7 @@ use App\Entity\Serie;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -63,13 +64,21 @@ class SerieRepository extends ServiceEntityRepository
 
         //en QueryBuilder
         $queryBuilder = $this->createQueryBuilder('s');
+
+        $queryBuilder->leftJoin('s.seasons', "seas")->addSelect('seas');
+
         $queryBuilder->andWhere('s.popularity >100');
         $queryBuilder->andWhere('s.vote > 8');
         $queryBuilder->addOrderBy('s.popularity', 'DESC');
         $query = $queryBuilder->getQuery();
-        $results = $query->getResult();
 
-        return $results;
+        $paginator = new Paginator($query);
+
+//        // plus besoin avec le paginator
+//        $results = $query->getResult();
+//        return $results;
+
+        return $paginator;
     }
 
     // /**

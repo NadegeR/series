@@ -6,6 +6,7 @@ use App\Entity\Serie;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,10 +17,10 @@ class SerieType extends AbstractType
         $builder
             ->add('name', TextType::class, ['label' =>'Title'])
             ->add('overview', null, ['required'=>false,])
-            ->add('status', ChoiceType::class, ['çhoices' => [
-                    'cancelled'=> 'Cancelled',
-                    'ended' => 'Ended',
-                    'returning' => 'Returning'],
+            ->add('status', ChoiceType::class, ['choices' => [
+                    'Cancelled'=> 'cancelled',
+                    'Ended' => 'ended',
+                    'Returning' => 'returning'],
                 'multiple' => false
             ])
             ->add('vote')
