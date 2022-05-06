@@ -56,15 +56,18 @@ nav li {
 
 label {
     display: block;
+    margin-bottom: 5px;
 }
 
 input,
 textarea,
 select {
-    margin-bottom: 1rem;
+
     box-sizing: border-box;
     width: 150px;
     max-width: 50%;
+    border-radius: 5px;
+    padding: 0.2rem 0.2rem;
 }
 
 .flash {
@@ -103,4 +106,8 @@ select {
 .seasons article img {
     max-height: 200px;
     margin-right: 0.6rem;
+}
+button{
+    padding: 3px;
+    border-radius: 5px;
 }
