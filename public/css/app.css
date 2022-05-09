@@ -48,6 +48,15 @@ nav li {
     margin-right: 1rem;
 }
 
+.nav-right{
+    position: absolute;
+    right: 15%;
+    margin: fill;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+}
+
 .series-list {
     display: grid;
     grid-gap: 10px;
@@ -57,12 +66,12 @@ nav li {
 label {
     display: block;
     margin-bottom: 5px;
+    margin-top:  15px;
 }
 
 input,
 textarea,
 select {
-
     box-sizing: border-box;
     width: 150px;
     max-width: 50%;

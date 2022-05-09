@@ -27,7 +27,7 @@ class SerieType extends AbstractType
             ->add('popularity')
             ->add('genres')
             ->add('firstAirDate', DateType::class, ['html5'=> true,'widget'=> 'single_text'])
-            ->add('lastAirDate')
+            ->add('lastAirDate', DateType::class, ['html5'=> true,'widget'=> 'single_text'])
             ->add('backdrop')
             ->add('poster')
             ->add('tmdbId')
