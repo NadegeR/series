@@ -1,24 +1,23 @@
-<nav>
-    <ul>
-        <li><a href="{{ path('main-home') }}" title="Home">Home</a></li>
-        <li><a href="{{ path('main-test') }}" title="Test">Test</a></li>
-        <li><a href="{{ path('serie_list') }}" title="All series">Series</a></li>
+<nav class="nav-bar">
+    <div class="nav-left">
+        <a href="{{ path('main-home') }}" title="Home">Home</a>
+        <a href="{{ path('main-test') }}" title="Test">Test</a>
+        <a href="{{ path('serie_list') }}" title="All series">Series</a>
         {% if app.user %}
-            <li><a href="{{ path('serie_create') }}" title="Create a new serie">Create serie</a></li>
-            <li><a href="{{ path('season_create') }}" title="Create a new season">Create season</a></li>
-            <li class="nav-right"><a href="{{ path('app_logout') }}" title="logout">Logout ( {{ app.user.firstname }}
-                    )</a></li>
-
-            {% if is_granted("ROLE_ADMIN") %}
-                <li><a href="{{ path('admin_dashboard') }}" title="Admin dashboard">Admin</a></li>
-            {% endif %}
-        {% else %}
-            <li class="nav-right"><a href="{{ path('app_login') }}" title="login">Login</a> | <a
-                        href="{{ path('app_register') }}" title="register">Register</a></li>
+            <a href="{{ path('serie_create') }}" title="Create a new serie">Create serie</a>
+            <a href="{{ path('season_create') }}" title="Create a new season">Create season</a>
         {% endif %}
-
-    </ul>
-    <div>
-
     </div>
+
+    <div class="nav-right">
+        {% if app.user %}
+        <a href="{{ path('app_logout') }}" title="logout">Logout ({{ app.user.firstname }})</a>
+        {% if is_granted("ROLE_ADMIN") %}
+            <a href="{{ path('admin_dashboard') }}" title="Admin dashboard">Admin</a>
+        {% endif %}
+        {% else %}
+        <a href="{{ path('app_login') }}" title="login">Login</a>
+        <a href="{{ path('app_register') }}" title="register">Register</a>
+    </div>
+    {% endif %}
 </nav>
